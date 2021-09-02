@@ -1,6 +1,27 @@
 "use strict"
 
 
+//allow user to input a single crtierion 
+//compare that criterion to all objects in the array
+//return whichever matches
+
+
+
+//allow user input to enter 5 or less criterion
+//compare each to to every object in the array
+//return thoes that match
+
+//return the decendancts of either single or multiple criteron searches
+
+//return a persons name after searching
+//ask the user if they would like to see relatives
+//return the names of parents
+//return the names of any spouses
+//return the name of any decendants
+//return each individuals relation to the person
+
+
+
 //Menu functions.
 //Used for the overall flow of the application.
 /////////////////////////////////////////////////////////////////
