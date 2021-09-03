@@ -1,31 +1,12 @@
 "use strict"
 
 
-//allow user to input a single crtierion 
-//compare that criterion to all objects in the array
-//return whichever matches
-
-
-
-//allow user input to enter 5 or less criterion
-//compare each to to every object in the array
-//return thoes that match
-
-//return the decendancts of either single or multiple criteron searches
-
-//return a persons name after searching
-//ask the user if they would like to see relatives
-//return the names of parents
-//return the names of any spouses
-//return the name of any decendants
-//return each individuals relation to the person
-
-
-
 //Menu functions.
 //Used for the overall flow of the application.
 /////////////////////////////////////////////////////////////////
 //#region 
+
+// 
 
 // app is the function called to start the entire application
 function app(people){
@@ -37,6 +18,7 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
+      searchEye = searchByEyeColor(people)
       break;
       default:
     app(people); // restart app
@@ -86,7 +68,7 @@ function mainMenu(person, people){
 /////////////////////////////////////////////////////////////////
 //#region 
 
-//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
+// nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", autoValid);
   let lastName = promptFor("What is the person's last name?", autoValid);
@@ -108,7 +90,7 @@ function searchByEyeColor(people){
 
 }
 
-//TODO: add other trait filter functions here.
+
 
 
 
@@ -180,3 +162,4 @@ function customValidation(input){
 }
 
 //#endregion
+
