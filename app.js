@@ -141,9 +141,9 @@ function searchByName(people){
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
-  let eyeColor = promptFor("What color are the persons eyes?", customValidation);
+  let eyeColorOptions = promptFor("What color are the persons eyes?", customValidation);
   let eyeColorResult = people.filter(function(potentialMatch){
-  if(potentialMatch.eyeColor === eyeColor){
+  if(potentialMatch.eyeColor === eyeColorOptions){
   return true;
   }
   else{
@@ -152,20 +152,8 @@ function searchByEyeColor(people){
 })
 // find array item with index of 1
 
-  // let listOfEyeColor = placeHolderForPeople2.filter(function(placeHolderForPeople2){
-  //   if(placeHolderForPeople2.eyeColor === eyeColor){
-  //     return true;
-  //   }
-  //   else{
-  //     return false;
-  //   }
-  // })
-  // return eyeColorResult;
-
-
-// display array item found
-console.log(eyeColorResult);
-};
+ return eyeColorResult;
+}
 
 function searchByTraits(placeHolderForPeople3){
 
@@ -259,12 +247,12 @@ function autoValid(input){
 //Unfinished validation function you can use for any of your custom validation callbacks.
 //can be used for things like eye color validation for example.
 function customValidation(input){
-  let eyeOptions = ("hazel", "green", "blue", "black", "brown")
-  if(input.toLowerCase() == eyeOptions ){
+ let eyeOptions = ["hazel", "green", "blue", "black", "brown"];
+  if(input.toLowerCase() <= eyeOptions ){
   return true
 } else {
   return false
-}
+  }
 };
 
 
