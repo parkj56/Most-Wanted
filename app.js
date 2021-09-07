@@ -41,11 +41,14 @@ function app(people){
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
+      mainMenu(searchResults, people);
       break;
     case 'no':
-      searchType = promptFor('Would you like to search based off of trait? Enter "eye color", "weight", "height", "gender"').toLowerCase();
-      break;
+      searchType = promptFor("Would you like to search based off of 'any' trait? Maybe specific traits, such as: 'eye color', 'weight', 'height', or 'gender'").toLowerCase()
+      switch(searchType){
       
+    
+
       case 'eye color':
         filterByEyeColor(people);
         break;
@@ -56,19 +59,22 @@ function app(people){
         //   case 'height':
         //     break;
 
-        //     case 'gender':
-        //       break;
+            case 'gender':
+              break;
+
+              case 'any':
+                let allTraits = searchByTraits(people)
+                console.log(allTraits)
+                break;
+
       // TODO: search by traits
       
       
       
   }
-}
+};
 
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  // let searchResults;
-  // mainMenu(searchResults, people);
- 
 
 
 // Menu function to call once you find who you are looking for
@@ -81,11 +87,12 @@ function mainMenu(person, people){
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let displayOption = promptFor("Found Them! Do you want to know their 'info', 'family', or 'descendants'? If not, 'restart' or 'quit'.", autoValid);
 
   switch(displayOption){
     case "info":
     // TODO: get person's info
+
     break;
     case "family":
     // TODO: get person's family
@@ -144,15 +151,49 @@ function filterByEyeColor(){
 })
 // find array item with index of 1
 
+  let listOfEyeColor = placeHolderForPeople2.filter(function(placeHolderForPeople2){
+    if(placeHolderForPeople2.eyeColor === eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return listOfEyeColor;
+};
 
 // display array item found
 // console.log(eyeColorResult);
 return eyeColorResult;
 }
 
-//TODO: add other trait filter functions here.
+function searchByTraits(placeHolderForPeople3){
 
+  let traitOptions = promptFor("Enter the traits that would assist you in finding the person you are looking for.", traitValidation )
 
+  let newArraySameOldTraits = placeHolderForPeople3.filter(function(placeHolderForPeople3){
+    if(placeHolderForPeople3.eyeColor === traitOptions){
+      return true;
+    }
+    else if(placeHolderForPeople3.gender === traitOptions){
+      return true;
+    }
+      else if(placeHolderForPeople3.dob === traitOptions){
+        return true;
+      }
+        else if(placeHolderForPeople3.height === traitOptions){
+          return true;
+        }
+          else if(placeHolderForPeople3.weight === traitOptions){
+            return true;
+          }
+          else {
+            return false;
+          }
+    
+  })
+  return newArraySameOldTraits;
+}
 
 //#endregion
 
@@ -197,7 +238,7 @@ function promptFor(question, valid){
     isValid = valid(response);
   } while(response === ""  ||  isValid === false)
   return response;
-}
+};
 
 // helper function/callback to pass into promptFor to validate yes/no answers.
 function yesNo(input){
@@ -207,18 +248,59 @@ function yesNo(input){
   else{
     return false;
   }
-}
+};
 
 // helper function to pass in as default promptFor validation.
 //this will always return true for all inputs.
 function autoValid(input){
   return true; // default validation only
-}
+};
 
 //Unfinished validation function you can use for any of your custom validation callbacks.
 //can be used for things like eye color validation for example.
 function customValidation(input){
-  
+  let eyeOptions = ("hazel", "green", "blue", "black", "brown")
+  if(input.toLowerCase() == eyeOptions ){
+  return true
+} else {
+  return false
 }
+};
+
+
+//
+
+function traitValidation(input){
+  let traitOptions = [ people.eyeColor, people.gender, people.height, people.weight, people.dob ]
+  if(input.toLowerCase() == traitOptions ){
+  return true
+} else {
+  return false
+}
+};
 
 //#endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
