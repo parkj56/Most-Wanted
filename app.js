@@ -5,7 +5,7 @@
 
 
 
-"use strict"
+"use strict";
 
 
 //allow user to input a single crtierion 
@@ -43,17 +43,30 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
+      searchType = promptFor('Would you like to search based off of trait? Enter "eye color", "weight", "height", "gender"').toLowerCase()
+      switch(searchType){
+      
+      case 'eye color':
+        break;
+
+        case 'weight':
+          break;
+
+          case 'height':
+            break;
+
+            case 'gender':
+              break;
       // TODO: search by traits
-      let (searchByTrait = promptFor("Would you like to search by eye color or another trait? Enter 'eye color', 'weight', 'height', 'gender'",)).toLowerCase
-      break;
-      default:
-    app(people); // restart app
-      break;
+      }
+      
+      
   }
+}
 
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
-}
+
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
@@ -115,12 +128,9 @@ function searchByName(people){
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
-  let (specificEyeColor = ['green', 'blue', 'hazel', 'brown', 'black']);
 
 // find array item with index of 1
-const atIndex = items.find(function(element, index){
-  return index === 7
-})
+
 
 // display array item found
 console.log(atIndex)
