@@ -1,5 +1,5 @@
 // date:         09/03/2021
-// names:        Parker Nieves, Reggie Hunter, Parker Hadley
+// names:        Parker Nieves, Regi Hunter, Parker Hadley
 // project:      Most Wanted Persons Finder
 // organization: devCodeCamp
 
