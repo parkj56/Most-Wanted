@@ -43,29 +43,32 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      searchType = promptFor('Would you like to search based off of trait? Enter "eye color", "weight", "height", "gender"').toLowerCase()
-      switch(searchType){
+      searchType = promptFor('Would you like to search based off of trait? Enter "eye color", "weight", "height", "gender"').toLowerCase();
+      break;
       
       case 'eye color':
+        filterByEyeColor(people);
         break;
 
-        case 'weight':
-          break;
+        // case 'weight':
+        //   break;
 
-          case 'height':
-            break;
+        //   case 'height':
+        //     break;
 
-            case 'gender':
-              break;
+        //     case 'gender':
+        //       break;
       // TODO: search by traits
-      }
+      
       
       
   }
 }
 
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults, people);
+  // let searchResults;
+  // mainMenu(searchResults, people);
+ 
 
 
 // Menu function to call once you find who you are looking for
@@ -113,9 +116,11 @@ function mainMenu(person, people){
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", autoValid);
   let lastName = promptFor("What is the person's last name?", autoValid);
+  let fullName = (firstName + ' ' + lastName);
 
-  let foundPerson = people.filter(function(potentialMatch){
+  fullName = people.filter(function(potentialMatch){
     if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
+      alert (fullName);
       return true;
     }
     else{
@@ -123,18 +128,26 @@ function searchByName(people){
     }
   })
   // TODO: find the person single person object using the name they entered.
-  return foundPerson;
+  return fullName;
 }
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
-function searchByEyeColor(people){
-
+function filterByEyeColor(){
+  let eyeColor = promtFor("What color are the persons eyes?", autoValid).toLowerCase;
+  let eyeColorResult = people.filter(function(potentialMatch){
+  if(potentialMatch.eyeColor === eyeColor){
+  return true;
+  }
+  else{
+    return false;
+  }
+})
 // find array item with index of 1
 
 
 // display array item found
-console.log(atIndex)
-
+// console.log(eyeColorResult);
+return eyeColorResult;
 }
 
 //TODO: add other trait filter functions here.
