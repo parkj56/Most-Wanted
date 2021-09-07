@@ -1,12 +1,38 @@
+// date:         09/03/2021
+// names:        Parker Nieves, Reggie Hunter, Parker Hadley
+// project:      Most Wanted Persons Finder
+// organization: devCodeCamp
+
+
+
 "use strict"
+
+
+//allow user to input a single crtierion 
+//compare that criterion to all objects in the array
+//return whichever matches
+
+
+
+//allow user input to enter 5 or less criterion
+//compare each to to every object in the array
+//return thoes that match
+
+//return the decendancts of either single or multiple criteron searches
+
+//return a persons name after searching
+//ask the user if they would like to see relatives
+//return the names of parents
+//return the names of any spouses
+//return the name of any decendants
+//return each individuals relation to the person
+
 
 
 //Menu functions.
 //Used for the overall flow of the application.
 /////////////////////////////////////////////////////////////////
 //#region 
-
-// 
 
 // app is the function called to start the entire application
 function app(people){
@@ -18,13 +44,13 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
-      searchEye = searchByEyeColor(people)
+      let (searchByTrait = promptFor("Would you like to search by eye color or another trait? Enter 'eye color', 'weight', 'height', 'gender'",)).toLowerCase
       break;
       default:
     app(people); // restart app
       break;
   }
-  
+
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
 }
@@ -50,6 +76,8 @@ function mainMenu(person, people){
     break;
     case "descendants":
     // TODO: get person's descendants
+   
+
     break;
     case "restart":
     app(people); // restart
@@ -68,7 +96,7 @@ function mainMenu(person, people){
 /////////////////////////////////////////////////////////////////
 //#region 
 
-// nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
+//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", autoValid);
   let lastName = promptFor("What is the person's last name?", autoValid);
@@ -87,10 +115,19 @@ function searchByName(people){
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
+  let (specificEyeColor = ['green', 'blue', 'hazel', 'brown', 'black']);
+
+// find array item with index of 1
+const atIndex = items.find(function(element, index){
+  return index === 7
+})
+
+// display array item found
+console.log(atIndex)
 
 }
 
-
+//TODO: add other trait filter functions here.
 
 
 
@@ -162,4 +199,3 @@ function customValidation(input){
 }
 
 //#endregion
-
