@@ -41,13 +41,16 @@ function app(people){
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
-      console.log(searchResults);
+      mainMenu(searchResults, people);
       break;
     case 'no':
-      searchType = promptFor('Would you like to search based off of trait? Enter "eye color", "weight", "height", "gender"').toLowerCase()
+      searchType = promptFor("Would you like to search based off of traits, such as:," + " "+ 'eye color', 'weight', 'height', or 'gender'").toLowerCase()
       switch(searchType){
       
       case 'eye color':
+
+
+      console.log()
         break;
 
         case 'weight':
@@ -63,10 +66,10 @@ function app(people){
       
       
   }
-}
+};
 
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults, people);
+
 
 
 // Menu function to call once you find who you are looking for
@@ -79,7 +82,7 @@ function mainMenu(person, people){
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let displayOption = promptFor("Found Them! Do you want to know their 'info', 'family', or 'descendants'? If not, 'restart' or 'quit'.", autoValid);
 
   switch(displayOption){
     case "info":
@@ -111,18 +114,11 @@ function mainMenu(person, people){
 /////////////////////////////////////////////////////////////////
 //#region 
 
-<<<<<<< HEAD
 // nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(placeHolderForPeople){
   let firstName = promptFor("What is the person's first name?", autoValid)
   let lastName = promptFor("What is the person's last name?", autoValid)
 
-=======
-//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
-function searchByName(people){
-  let firstName = promptFor("What is the person's first name?", autoValid);
-  let lastName = promptFor("What is the person's last name?", autoValid);
->>>>>>> de82b28a8adbfae613a50cf2032ce60bf1661059
 
   let person = placeHolderForPeople.filter(function(placeHolderForPeople){
     if(placeHolderForPeople.firstName === firstName && placeHolderForPeople.lastName === lastName){
@@ -137,21 +133,21 @@ function searchByName(people){
 };
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
-function searchByEyeColor(people){
-<<<<<<< HEAD
+function searchByEyeColor(placeHolderForPeople2){
+
+  let eyeQuestion = promptFor("What color eyes does this person have? 'Black', 'Blue', 'Hazel', 'Green', or 'Brown'?", customValidation )
+
+  let eyeColor = placeHolderForPeople2.filter(function(placeHolderForPeople2){
+    if(placeHolderForPeople2.eyeColor === eyeColor && placeHolderForPeople2.eyeColor === eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return eyeColor;
 };
-=======
 
-// find array item with index of 1
->>>>>>> de82b28a8adbfae613a50cf2032ce60bf1661059
-
-
-// display array item found
-console.log(atIndex)
-
-}
-
-//TODO: add other trait filter functions here.
 
 
 
