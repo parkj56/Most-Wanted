@@ -150,18 +150,31 @@ function searchByEyeColor(placeHolderForPeople2){
 
 function searchByTraits(placeHolderForPeople3){
 
-  let eyeColor = promptFor("Enter the traits that would assist you in finding the person you are looking for.", traitValidation )
+  let traitOptions = promptFor("Enter the traits that would assist you in finding the person you are looking for.", traitValidation )
 
-  let listOfEyeColor = placeHolderForPeople3.filter(function(placeHolderForPeople3){
-    if(placeHolderForPeople3.eyeColor === eyeColor){
+  let newArraySameOldTraits = placeHolderForPeople3.filter(function(placeHolderForPeople3){
+    if(placeHolderForPeople3.eyeColor === traitOptions){
       return true;
     }
-    else{
-      return false;
+    else if(placeHolderForPeople3.gender === traitOptions){
+      return true;
     }
+      else if(placeHolderForPeople3.dob === traitOptions){
+        return true;
+      }
+        else if(placeHolderForPeople3.height === traitOptions){
+          return true;
+        }
+          else if(placeHolderForPeople3.weight === traitOptions){
+            return true;
+          }
+          else {
+            return false;
+          }
+    
   })
-  return listOfEyeColor;
-
+  return newArraySameOldTraits;
+}
 
 //#endregion
 
@@ -206,7 +219,7 @@ function promptFor(question, valid){
     isValid = valid(response);
   } while(response === ""  ||  isValid === false)
   return response;
-}
+};
 
 // helper function/callback to pass into promptFor to validate yes/no answers.
 function yesNo(input){
@@ -216,7 +229,7 @@ function yesNo(input){
   else{
     return false;
   }
-}
+};
 
 // helper function to pass in as default promptFor validation.
 //this will always return true for all inputs.
@@ -248,4 +261,27 @@ function traitValidation(input){
 };
 
 //#endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
