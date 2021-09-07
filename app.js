@@ -44,13 +44,14 @@ function app(people){
       mainMenu(searchResults, people);
       break;
     case 'no':
-      searchType = promptFor("Would you like to search based off of 'any' trait? Maybe specific traits, such as: 'eye color', 'weight', 'height', or 'gender'").toLowerCase()
+      searchType = promptFor("Would you like to search based off of 'any' trait? Or maybe a specific trait, such as: 'eye color'?", autoValid).toLowerCase()
       switch(searchType){
       
     
 
       case 'eye color':
-        filterByEyeColor(people);
+        let listOfEyes = searchByEyeColor(people)
+        console.log(listOfEyes)
         break;
 
         // case 'weight':
