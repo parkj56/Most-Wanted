@@ -146,7 +146,21 @@ function searchByEyeColor(placeHolderForPeople2){
   return listOfEyeColor;
 };
 
+//User Story: As a user, I want to be able to search for someone based on multiple traits (up to a maximum of five criteria at once).
 
+function searchByTraits(placeHolderForPeople3){
+
+  let eyeColor = promptFor("Enter the traits that would assist you in finding the person you are looking for.", traitValidation )
+
+  let listOfEyeColor = placeHolderForPeople3.filter(function(placeHolderForPeople3){
+    if(placeHolderForPeople3.eyeColor === eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return listOfEyeColor;
 
 
 //#endregion
@@ -221,4 +235,17 @@ function customValidation(input){
 }
 };
 
+
+//
+
+function traitValidation(input){
+  let traitOptions = [ people.eyeColor, people.gender, people.height, people.weight, people.dob ]
+  if(input.toLowerCase() == traitOptions ){
+  return true
+} else {
+  return false
+}
+};
+
 //#endregion
+
