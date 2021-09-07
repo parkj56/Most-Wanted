@@ -44,7 +44,7 @@ function app(people){
       mainMenu(searchResults, people);
       break;
     case 'no':
-      searchType = promptFor("Would you like to search based off of traits, such as:," + " "+ 'eye color', 'weight', 'height', or 'gender'").toLowerCase()
+      searchType = promptFor("Would you like to search based off of traits, such as: 'eye color', 'weight', 'height', or 'gender'").toLowerCase()
       switch(searchType){
       
       case 'eye color':
@@ -210,12 +210,17 @@ function yesNo(input){
 //this will always return true for all inputs.
 function autoValid(input){
   return true; // default validation only
-}
+};
 
 //Unfinished validation function you can use for any of your custom validation callbacks.
 //can be used for things like eye color validation for example.
 function customValidation(input){
-  
+  let eyeOptions = ("hazel", "green", "blue", "black", "brown")
+  if(input.toLowerCase() == eyeOptions ){
+  return true
+} else {
+  return false
 }
+};
 
 //#endregion
