@@ -120,7 +120,8 @@ function mainMenu(person, people){
 /////////////////////////////////////////////////////////////////
 //#region 
 
-//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
+//function used to search through an array of people to find matching first and last name and return a SINGLE person object and then prompt the user to query info, descendants, and family.
+
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", autoValid);
   let lastName = promptFor("What is the person's last name?", autoValid);
@@ -128,7 +129,6 @@ function searchByName(people){
 
   fullName = people.filter(function(potentialMatch){
     if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
-      alert (fullName);
       return true;
     }
     else{
@@ -140,8 +140,8 @@ function searchByName(people){
 }
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
-function filterByEyeColor(){
-  let eyeColor = promtFor("What color are the persons eyes?", autoValid).toLowerCase;
+function searchByEyeColor(people){
+  let eyeColor = promptFor("What color are the persons eyes?", customValidation);
   let eyeColorResult = people.filter(function(potentialMatch){
   if(potentialMatch.eyeColor === eyeColor){
   return true;
@@ -152,21 +152,20 @@ function filterByEyeColor(){
 })
 // find array item with index of 1
 
-  let listOfEyeColor = placeHolderForPeople2.filter(function(placeHolderForPeople2){
-    if(placeHolderForPeople2.eyeColor === eyeColor){
-      return true;
-    }
-    else{
-      return false;
-    }
-  })
-  return listOfEyeColor;
-};
+  // let listOfEyeColor = placeHolderForPeople2.filter(function(placeHolderForPeople2){
+  //   if(placeHolderForPeople2.eyeColor === eyeColor){
+  //     return true;
+  //   }
+  //   else{
+  //     return false;
+  //   }
+  // })
+  // return eyeColorResult;
+
 
 // display array item found
-// console.log(eyeColorResult);
-return eyeColorResult;
-}
+console.log(eyeColorResult);
+};
 
 function searchByTraits(placeHolderForPeople3){
 
@@ -304,4 +303,4 @@ function traitValidation(input){
 
 
 
-
+}
