@@ -49,8 +49,6 @@ function app(people){
       
       case 'eye color':
 
-
-      console.log()
         break;
 
         case 'weight':
@@ -135,17 +133,17 @@ function searchByName(placeHolderForPeople){
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(placeHolderForPeople2){
 
-  let eyeQuestion = promptFor("What color eyes does this person have? 'Black', 'Blue', 'Hazel', 'Green', or 'Brown'?", customValidation )
+  let eyeColor = promptFor("What color eyes does this person have? 'Black', 'Blue', 'Hazel', 'Green', or 'Brown'?", customValidation )
 
-  let eyeColor = placeHolderForPeople2.filter(function(placeHolderForPeople2){
-    if(placeHolderForPeople2.eyeColor === eyeColor && placeHolderForPeople2.eyeColor === eyeColor){
+  let listOfEyeColor = placeHolderForPeople2.filter(function(placeHolderForPeople2){
+    if(placeHolderForPeople2.eyeColor === eyeColor){
       return true;
     }
     else{
       return false;
     }
   })
-  return eyeColor;
+  return listOfEyeColor;
 };
 
 
