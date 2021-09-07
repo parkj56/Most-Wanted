@@ -44,7 +44,7 @@ function app(people){
       mainMenu(searchResults, people);
       break;
     case 'no':
-      searchType = promptFor("Would you like to search based off of 'any' trait? Or maybe a specific trait, such as: 'eye color'?", autoValid).toLowerCase()
+      searchType = promptFor("Would you like to search by 'eye color', 'height', 'weight', or 'gender'?", autoValid).toLowerCase();
       switch(searchType){
       
     
@@ -88,7 +88,7 @@ function mainMenu(person, people){
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found Them! Do you want to know their 'info', 'family', or 'descendants'? If not, 'restart' or 'quit'.", autoValid);
+  let displayOption = promptFor("Found Them! Do you want to know their 'info', 'family', or 'descendants'? If not, 'restart' or 'quit'.", displayPerson);
 
   switch(displayOption){
     case "info":
@@ -202,8 +202,19 @@ function displayPerson(person){
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "Gender: " + person.gender + "\n";
+  personInfo += "D.O.B: " + person.dob + "\n";
+  personInfo += "Height: " + person.height + "\n";
+  personInfo += "Weight: " + person.weight + "\n";
+  personInfo += "Eye Color: " + person.eyeCollor + "\n";
+  personInfo += "Occupation: " + person.occupation + "\n";
+  personInfo += "Parents: " + person.parents + "\n";
+  personInfo += "Current Spouse: " + person.currentSpouse + "\n";
+  personInfo += "I.D: " + person.id + "\n";
+
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
+  console.log(personInfo);
 }
 
 //#endregion
@@ -255,6 +266,9 @@ function customValidation(input){
   }
 };
 
+function weightValidation(input){
+
+}
 
 //
 
